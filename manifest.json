@@ -1,0 +1,23 @@
+{
+  "name": "هر رویداد، یک تجربه جدید",
+  "short_name": "رویداد",
+  "background_color": "#fff",
+  "theme_color": "#007bff",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "fa",
+  "start_url": "/?source=pwa",
+  "icons": [
+    {
+      "src": "assets/icon-pwa-start192.png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-pwa-start512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
