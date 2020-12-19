@@ -1,0 +1,1 @@
+no matching service worker delected. you may need to reload the page, or check that the scope of the service worker for the current page encloses the scope and start URL from the menifest
