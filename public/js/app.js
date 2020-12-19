@@ -5,10 +5,10 @@ window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('sw.js')
       .then((registration) => {
-        console.log('registration success', registration.scope);
+        // console.log('registration success', registration.scope);
       })
       .catch(function (err) {
-        console.warn('Error whilst registering service worker', err);
+        // console.warn('Error whilst registering service worker', err);
       });
   }
 
@@ -19,9 +19,14 @@ window.addEventListener('load', () => {
     installPromptEvent = event;
   });
 
-  pwaInstallationBtn.addEventListener('click', () => {
-    if (installPromptEvent) {
-      installPromptEvent.prompt('لطفا اپلیکیشن مارا نصب کنید');
-    }
-  });
+  if (pwaInstallationBtn) {
+    pwaInstallationBtn.addEventListener('click', () => {
+      if (installPromptEvent) {
+        installPromptEvent.prompt('لطفا اپلیکیشن مارا نصب کنید');
+      }
+    });
+  }
+
+  getPushSubscription();
+  showNotification('به اپلیکیشن رویداد خوش آمدید');
 });

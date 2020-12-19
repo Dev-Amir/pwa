@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <link rel="shortcut icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <meta name="theme-color" content="#007bff" />
+
+    <!-- Safari Meta Tag -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#007bff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link
+      rel="apple-touch-icon"
+      href="assets/icon-pwa-start192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="assets/icon-pwa-start512.png"
+      sizes="512x512"
+    />
+    <link rel="apple-touch-startup-image" href="assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#007bff" />
+
+    <!-- Progressive Web Application -->
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <nav class="navbar bg-primary justify-content-around">
+      <a href="index.html" class="navbar-brand text-light">وبسایت رویداد</a>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-light">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a href="events.html" class="nav-link text-light">رویداد ها</a>
+        </li>
+        <li class="nav-item">
+          <a href="about-us.html" class="nav-link text-light">درباره ما</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="container p-4">
+      <h1 class="display-3 text-right">افزودن پست جدید</h1>
+
+      <br /><br />
+
+      <form id="form-add-post">
+        <div class="form-group">
+          <label for="post-title">عنوان پست</label>
+
+          <input
+            type="text"
+            name="post_title"
+            id="post-title"
+            class="form-control"
+            placeholder="عنوان پست"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="post-description">متن پست</label>
+
+          <input
+            type="text"
+            name="post_description"
+            id="post-description"
+            class="form-control"
+            placeholder="متن پست"
+          />
+        </div>
+
+        <!-- <div class="form-group">
+          <div class="d-flex justify-content-center">
+            <video
+              class="embed-responsive rounded"
+              height="300"
+              width="300"
+              id="video-player"
+              autoplay
+            ></video>
+            <canvas
+              id="canvas"
+              style="width: 300px; height: 300px"
+              class="d-none"
+            ></canvas>
+          </div>
+          <div class="text-center pt-3">
+            <button type="button" class="btn btn-dark" id="btn-save-image">
+              گرفتن عکس
+            </button>
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <button type="button" class="btn btn-danger" id="btn-geo">
+            نمایش موقعیت کنونی کاربر
+          </button>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary py-2 px-4">ثبت</button>
+        </div>
+      </form>
+    </main>
+
+    <script src="js/notification.js"></script>
+    <!-- <script src="js/app.js"></script> -->
+    <!-- <script>
+      const getMedia = async () => {
+        const constraints = { video: { width: 300, height: 300 } };
+        const video = document.querySelector('#video-player');
+        const canvas = document.getElementById('canvas');
+        const btnSaveImage = document.getElementById('btn-save-image');
+
+        btnSaveImage.addEventListener('click', () => {
+          btnSaveImage.remove();
+
+          canvas.classList.remove('d-none');
+          const canvasContext = canvas.getContext('2d');
+          canvasContext.drawImage(video, 0, 0);
+
+          video.srcObject.getTracks().forEach(function (track) {
+            console.log(track);
+            track.stop();
+          });
+          video.classList.add('d-none');
+        });
+
+        navigator.mediaDevices
+          .getUserMedia(constraints)
+          .then(function (mediaStream) {
+            video.srcObject = mediaStream;
+            video.onloadedmetadata = function (e) {
+              video.play();
+            };
+          });
+      };
+
+
+      window.addEventListener('load', () => {
+        getMedia();
+      });
+    </script> -->
+
+    <script>
+      window.onload = () => {
+        const btnGeo = document.getElementById('btn-geo');
+
+        btnGeo.addEventListener('click', () => {
+          navigator.geolocation.getCurrentPosition(
+            (geoUser) => {
+              console.log(geoUser);
+            },
+            (error) => {
+              console.log(
+                'error in get current user position. error => ',
+                error
+              );
+            }
+          );
+        });
+      };
+    </script>
+  </body>
+</html>
