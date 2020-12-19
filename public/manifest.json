@@ -3,7 +3,7 @@
   "short_name": "رویداد",
   "background_color": "#fff",
   "theme_color": "#007bff",
-  "scope": "/",
+  "scope": ".",
   "display": "fullscreen",
   "orientation": "portrait",
   "dir": "rtl",
